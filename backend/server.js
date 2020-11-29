@@ -1,11 +1,16 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import connectDB from './config/db.js'
-
-const app = express()
+import morgan from 'morgan'
 
 dotenv.config()
 connectDB()
+
+const app = express()
+
+if(process.env.NODE_ENV === 'development'){
+  app.use(morgan('dev'))
+}
 
 app.get('/',(req, res) =>{
   res.send('from the newly created app')

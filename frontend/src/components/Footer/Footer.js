@@ -41,6 +41,7 @@ function Footer() {
         onPlay={e => console.log("onPlay")}
         // other props here
       />            
+
       </div>        
         <div className="footer__right">
           <div>

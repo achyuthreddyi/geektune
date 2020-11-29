@@ -35,7 +35,7 @@ export const setSong = (songId) => async(dispatch) =>{
 
     dispatch({
       type: SONG_CURRENT_PLAY_SUCCESS,
-      payload: `http://localhost:5000/songPlay/${songId}`
+      payload: `http://localhost:5000/api/songs/songPlay/${songId}`
     })
   }catch(error){
     dispatch({
@@ -48,7 +48,7 @@ export const setSong = (songId) => async(dispatch) =>{
 export const getSongDetails = (songId) => async(dispatch) =>{
   try{
     dispatch( { type: SONG_CURRENT_DETAILS_REQUEST})
-    const {data} = await axios.get(`http://localhost:5000/api/${songId}`)
+    const {data} = await axios.get(`http://localhost:5000/api/songs/${songId}`)
     console.log('data in the getSongDetails', data);
    
     dispatch({

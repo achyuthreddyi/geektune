@@ -21,7 +21,7 @@ export const songListReducer = (state = {songs: []}, action ) =>{
       return state 
   }
 }
-export const songCurrentPlaySet = (state = {songPlayUrl:'http://localhost:5000/songPlay/5fc3ae34aea8e0943d6919e8'}, action ) =>{
+export const songCurrentPlaySet = (state = {songPlayUrl:'http://localhost:5000/api/songs/songPlay/5fc3f50262110d91584952b2'}, action ) =>{
   switch(action.type){
     case SONG_CURRENT_PLAY_REQUEST:
       return { loading: true}

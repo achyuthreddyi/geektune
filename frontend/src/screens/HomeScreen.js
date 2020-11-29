@@ -5,8 +5,6 @@ import Song from '../components/Song/Song'
 import { listSongs } from '../actions/songActions'
 import { useDispatch, useSelector} from 'react-redux'
 
-
-
 const HomeScreen = () => {
 
   const dispatch = useDispatch()

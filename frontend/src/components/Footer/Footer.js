@@ -1,19 +1,11 @@
-import React, {useEffect, useState} from 'react'
-
-
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
-
-import axios from 'axios'
-
 import "./Footer.css"
-
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { useSelector  } from "react-redux";
 
-function Footer( { spotify } ) { 
-
+function Footer() { 
 
   const songCurrentPlay = useSelector( state => state.songCurrentPlay)  
   const { songPlayUrl } = songCurrentPlay
@@ -48,27 +40,16 @@ function Footer( { spotify } ) {
         src={songPlayUrl}
         onPlay={e => console.log("onPlay")}
         // other props here
-      />  
-
-          
-      </div>
-        
+      />            
+      </div>        
         <div className="footer__right">
           <div>
           <SkipNextIcon/>
-          <SkipPreviousIcon />
-          
+          <SkipPreviousIcon />        
 
-          </div>
-          
-
-          
-        </div>
-        
-        
-      </div>
-  
-       
+          </div>          
+        </div>       
+      </div>      
     )
 }
 

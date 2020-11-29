@@ -2,21 +2,20 @@ import React , {useState, useEffect} from 'react'
 import { Row, Col } from 'react-bootstrap'
 import axios from 'axios'
 import Song from '../components/Song/Song'
+import { listSongs } from '../actions/songActions'
+import { useDispatch, useSelector} from 'react-redux'
 
 
 
 const HomeScreen = () => {
 
-  const [songs, setSongs] = useState([])
+  const dispatch = useDispatch()
+  
+  const songList = useSelector(state => state.songList)
+  const {songs } = songList
 
   useEffect(() => {
-    const getSong = async() =>{
-      const {data} = await axios.get('http://localhost:5000/')
-      setSongs(data)
-      console.log('data of the song',data);
-    }
-    getSong()      
-
+    dispatch(listSongs())
  
   }, [])
   console.log(songs);
@@ -26,17 +25,17 @@ const HomeScreen = () => {
     <div>
       <h1>Home Screen</h1>  
       <Row>
-        {songs.length === 0 && <h1>No songs found </h1> }
-        {songs.map(song =>(
+        {songs && songs.length === 0 && <h1>No songs found </h1> }
+        {songs && songs.map(song =>(
           <Col key={song._id} sm={12} md={6} lg={3} xlg={3} >
-             <Song 
-            song = {song}
-          />
+            <Song 
+              song = {song}
+            />
           </Col>
         ))}
        
       </Row>  
- 
+ .
     </div>
   )
 }

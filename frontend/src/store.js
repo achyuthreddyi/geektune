@@ -1,10 +1,12 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { songListReducer } from './reducers/songReducers'
+import { songCurrentDetails, songCurrentPlaySet, songListReducer } from './reducers/songReducers'
 
 const reducer = combineReducers({
-  songList: songListReducer
+  songList: songListReducer,
+  songCurrentPlay: songCurrentPlaySet,
+  songCurrentDetails: songCurrentDetails
 })
 
 

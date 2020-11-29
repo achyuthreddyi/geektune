@@ -1,12 +1,20 @@
-import React from 'react'
+import React ,{useState}from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Button } from 'react-bootstrap'
+import { setSong, getSongDetails } from '../../actions/songActions'
+import { useDispatch, useSelector} from 'react-redux'
 
 const Song = ({song}) => {
-  const playSong = (id) => {
-    console.log(id);
+  const dispatch = useDispatch()
 
+  // const [songId, setSongId] = useState('')
+
+  const playSong = (songId) => {    
+    dispatch(setSong(songId))
+    dispatch(getSongDetails(songId))
   }
+
+
   return (
     <Card className='my-3 p-3 rounded'>
       <Link to={`/product/${song._id}`}>
@@ -25,19 +33,15 @@ const Song = ({song}) => {
         </Link>
         <Button 
           variant="primary"
-          onClick = {playSong(song._id)}        
+          onClick = {() => playSong(song._id)}        
         >Play</Button>
+      
         <Card.Text as= 'div'>
                       {/* <Rating 
                           value={ product.rating} 
                           text={`${product.numReviews} reviews `}                                            
                       /> */}
         </Card.Text>
-
-        {/* <Card.Text as= 'div'>
-          &#x20B9; {product.price}
-        </Card.Text> */}
-
 
       </Card.Body>
       

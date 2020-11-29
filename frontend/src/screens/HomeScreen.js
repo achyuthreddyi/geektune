@@ -1,5 +1,5 @@
 import React , {useState, useEffect} from 'react'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Button } from 'react-bootstrap'
 import axios from 'axios'
 import Song from '../components/Song/Song'
 import { listSongs } from '../actions/songActions'
@@ -18,8 +18,7 @@ const HomeScreen = () => {
     dispatch(listSongs())
  
   }, [])
-  console.log(songs);
-
+ 
 
   return (
     <div>
@@ -32,8 +31,7 @@ const HomeScreen = () => {
               song = {song}
             />
           </Col>
-        ))}
-       
+        ))}     
       </Row>  
  .
     </div>
